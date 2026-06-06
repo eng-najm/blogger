@@ -248,6 +248,54 @@
       .separator {
         margin: 0 4px;
       }
+      #list-items {
+        display: flex;
+        gap: 20px;
+        padding: 5px;
+        flex-direction: column;
+      }
+      /* تنسيق الأيقونة */
+      .empty-state .empty-icon {
+        font-size: 60px;
+        margin-bottom: 15px;
+        opacity: 0.5; /* جعل لون الأيقونة باهتاً قليلاً */
+      }
+
+      /* تنسيق العنوان */
+      .empty-state h3 {
+        margin: 0 0 10px 0;
+        color: #374151;
+        font-size: 22px;
+      }
+
+      /* تنسيق النص التوضيحي */
+      .empty-state p {
+        margin: 0 0 25px 0;
+        color: #6b7280;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      /* تنسيق زر الإضافة */
+      .empty-state .add-btn {
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .empty-state {
+        display: none;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+      }
     </style>
   </head>
 
@@ -286,79 +334,22 @@
             clicked by the user.
           </p>
         </details>
-        <div class="card-container">
-          <div class="card-left">
-            <div class="profile">
-              <div class="avatar">
-                <svg
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 40 40"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="20" cy="15" r="7" fill="#555" />
-                  <circle cx="20" cy="38" r="12" fill="#555" />
-                </svg>
-              </div>
-              <span class="username">Nagm</span>
-            </div>
-
-            <div class="stats">
-              <div class="stat-item">
-                <svg
-                  class="icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12 20V10M18 20V4M6 20v-6"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <span class="value">0</span>
-              </div>
-              <div class="stat-item">
-                <svg
-                  class="icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <span class="value">0</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-right">
-            <div class="letter-box">
-              <span class="letter">ب</span>
-            </div>
-            <div class="post-info">
-              <h3 class="post-title">(بلا عنوان)</h3>
-              <div class="post-meta">
-                <span class="status">مسودة</span>
-                <span class="separator">•</span>
-                <span class="date">25 مايو</span>
-              </div>
-            </div>
-          </div>
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">📄</div>
+          <h3>لا توجد مقالات حالياً</h3>
+          <p>
+            يبدو أنك لم تقم بإضافة أي مقالات بعد. ابدأ بكتابة مقالتك الأولى الآن
+            ليتم عرضها هنا!
+          </p>
+          <button class="add-btn" onclick="addArticle()">
+            + إضافة مقالة جديدة
+          </button>
         </div>
+        <div id="list-items"></div>
       </section>
     </main>
 
     <footer></footer>
+    <script src="app.js"></script>
   </body>
 </html>
