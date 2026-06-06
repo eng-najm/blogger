@@ -1,15 +1,21 @@
 <!doctype html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width;initial-scale=1.0" />
-    <meta name="description" content="Hello" />
-    <meta name="keyword" />
-    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
       * {
+        box-sizing: border-box;
+        font-family: "Audiowide", sans-serif;
+        font-weight: 400;
+        font-style: normal;
         padding: 0;
         margin: 0;
-        box-sizing: border-box;
       }
       header {
         height: 56px;
@@ -107,7 +113,7 @@
         align-items: center;
         text-decoration: none;
         text-align: center;
-        max-width: 140px;
+        max-width: 150px;
         height: 40px;
         padding: 0 15px;
         background-color: white;
@@ -247,22 +253,22 @@
 
   <body>
     <header>
-      <div id="left-side">
-        <div id="acount-logo"></div>
-        <a href="#" id="apps"> <img src="images/apps.svg" alt="" /> </a>
-        <a href="#" id="apps"> <img src="images/info.svg" alt="" /> </a>
+      <div id="right-side">
+        <div id="drawer-logo">
+          <img src="images/menu-burger.svg" width="40px" height="40px" alt="" />
+        </div>
+        <div id="app-logo">
+          <img src="images/icon.png" width="40px" height="40px" alt="" />
+        </div>
       </div>
       <div id="searchbar">
         <a href="#" id="apps"> <img src="images/apps.svg" alt="" /> </a>
         <input type="text" name="" id="" placeholder="shearch" />
       </div>
-      <div id="right-side">
-        <div id="app-logo">
-          <img src="images/icon.png" width="40px" height="40px" alt="" />
-        </div>
-        <div id="drawer-logo">
-          <img src="images/menu-burger.svg" width="40px" height="40px" alt="" />
-        </div>
+      <div id="left-side">
+        <a href="#" id="apps"> <img src="images/apps.svg" alt="" /> </a>
+        <a href="#" id="apps"> <img src="images/info.svg" alt="" /> </a>
+        <div id="acount-logo"></div>
       </div>
     </header>
     <main>
@@ -273,8 +279,7 @@
       <section>
         <details>
           <summary>
-            <div>III ___---___</div>
-            <div>ss</div>
+            <div>Notifications</div>
           </summary>
           <p>
             This is the hidden content that gets revealed when the summary is
