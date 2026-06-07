@@ -2,7 +2,7 @@
  const title = document.getElementById("title") ;
  const content = document.getElementById("content") ;
  const file = document.getElementById("image");
-
+let url;
  let items = [];
 
 document.addEventListener(
@@ -28,7 +28,6 @@ function load(){
 }
 
 function handleFunction() {
-   alert("hhh");
    if ( Boolean(parameter.get("articleNumber")) ) {
       editArtical();
    } else {
@@ -55,7 +54,7 @@ load();
  let artical = {
     title: title.value ,
     content:content.value,
-    file: url,
+    file:  url??"" ,
     date: new Date()
  } ;
 
@@ -67,6 +66,7 @@ load();
  );
 
  console.log(artical);
+ window.location.href = "home.html";
 }
 
 file.addEventListener('change' , (e)=>{
@@ -78,7 +78,7 @@ file.addEventListener('change' , (e)=>{
      url = fr.result ;
  }) 
 
- window.location.href = "home.html";
+ 
 });
 
 

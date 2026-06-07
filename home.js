@@ -1,5 +1,5 @@
 let data = localStorage.getItem("list-items");
-let items;
+let items=[];
 
 window.onload = () => {
    
@@ -16,7 +16,10 @@ function renderArticales() {
   }
 
   data = localStorage.getItem("list-items");
-  items = JSON.parse(data);
+if (JSON.parse(data)) {
+    items =JSON.parse(data);
+}
+ 
 
   document.getElementById("list-items").innerHTML = '';
 
