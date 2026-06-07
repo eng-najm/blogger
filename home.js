@@ -1,5 +1,28 @@
-/*
-<div class="card-container">
+let data = localStorage.getItem("list-items");
+let items;
+
+window.onload = () => {
+   
+    renderArticales();
+  
+};
+
+
+
+function renderArticales() {
+
+  if (!data || data == "[]") {
+    document.getElementById("emptyState").style.display = "flex";
+  }
+
+  data = localStorage.getItem("list-items");
+  items = JSON.parse(data);
+
+  document.getElementById("list-items").innerHTML = '';
+
+  items.forEach((artical, index) => {
+    document.getElementById("list-items").innerHTML += `
+        <div class="card-container">
           <div class="card-left">
             <div class="profile">
               <div class="avatar">
@@ -15,6 +38,10 @@
                 </svg>
               </div>
               <span class="username">Nagm</span>
+              <span class="articleBtns">
+                  <img class="articleBtn" onclick="deleteArticle(${index})" src="images/trash-can.png" >
+                  <img class="articleBtn" src="images/edit.png">
+              </span>
             </div>
 
             <div class="stats">
@@ -57,28 +84,29 @@
 
           <div class="card-right">
             <div class="letter-box">
-              <span class="letter">ب</span>
+              <span class="letter"> ${artical.title.slice(0, 1)} </span>
             </div>
             <div class="post-info">
-              <h3 class="post-title">(بلا عنوان)</h3>
+              <h3 class="post-title"> ${artical.title} </h3>
               <div class="post-meta">
-                <span class="status">مسودة</span>
                 <span class="separator">•</span>
-                <span class="date">25 مايو</span>
+                <span class="date"> ${artical.date} </span>
               </div>
             </div>
           </div>
-        </div>*/
-let listItems = document.getElementById("list-items");
-
-let items = [];
-
-window.onload = ()=> {
-    listItems = localStorage.getItem("list-items") ;
-    if (!listItems) {
-        document.getElementById("emptyState").style.display= "flex";
-    }
+        </div>
+        `;
+  });
 }
 
+function deleteArticle(articleNumber) {
+  items.splice(articleNumber, 1);
 
+  localStorage.setItem("list-items", JSON.stringify(items));
 
+  data = localStorage.getItem("list-items");
+  items = JSON.parse(data);
+
+  // location.reload();
+  renderArticales();
+}
