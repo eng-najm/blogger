@@ -1,4 +1,6 @@
+const aside = document.getElementById("home-aside");
 let data = localStorage.getItem("list-items");
+const searchInput = document.getElementById("search");
 let items=[];
 
 window.onload = () => {
@@ -7,25 +9,55 @@ window.onload = () => {
   
 };
 
-
-
-function renderArticales() {
-
-  if (!data || data == "[]") {
+function load(){
+ if (!data || data == "[]") {
     document.getElementById("emptyState").style.display = "flex";
   }
 
   data = localStorage.getItem("list-items");
-if (JSON.parse(data)) {
-    items =JSON.parse(data);
+  items =JSON.parse(data)??[];
 }
- 
 
+function renderArticales() {
+ load();
   document.getElementById("list-items").innerHTML = '';
 
   items.forEach((artical, index) => {
-    document.getElementById("list-items").innerHTML += `
-        <div class="card-container">
+    document.getElementById("list-items").innerHTML +=buildCardItem(artical, index) ;
+  });
+}
+
+
+  
+
+function deleteArticle(articleNumber) {
+  items.splice(articleNumber, 1);
+
+  localStorage.setItem("list-items", JSON.stringify(items));
+
+  load()
+
+  // location.reload();
+  renderArticales();
+}
+
+function edit(articleNumber) {
+  let url = `create-artical.html?articleNumber=${articleNumber}`;
+
+  window.location.href = url;
+}
+
+function onMenuClicked(){
+ aside.style.display = aside.style.display == "flex"?"none": "flex"  ;
+}
+
+function openReadPage(index){
+  window.location.href =`read-artical.html?articalNumber=${index}`;
+}
+
+
+function buildCardItem(artical, index){
+  return`<div class="card-container">
           <div class="card-left">
             <div class="profile">
               <div class="avatar">
@@ -44,6 +76,7 @@ if (JSON.parse(data)) {
               <span class="articleBtns">
                   <img class="articleBtn" onclick="deleteArticle(${index})" src="images/trash-can.png" >
                   <img class="articleBtn" onclick="edit(${index})" src="images/edit.png">
+                  <img class="articleBtn" onclick="openReadPage(${index})" src="images/book.png">
               </span>
             </div>
 
@@ -93,29 +126,22 @@ if (JSON.parse(data)) {
               <h3 class="post-title"> ${artical.title} </h3>
               <div class="post-meta">
                 <span class="separator">•</span>
-                <span class="date"> ${artical.date} </span>
+                <span class="date"> ${new Date(artical.date).toLocaleDateString('en-US', {day: 'numeric', month: 'long'})} </span>
               </div>
             </div>
           </div>
         </div>
-        `;
+        `
+}
+
+
+
+searchInput.addEventListener('change' , (e)=>{
+document.getElementById("list-items").innerHTML = '';
+
+  items.forEach((artical, index) => {
+    if (artical.title.includes(searchInput.value)) {
+      document.getElementById("list-items").innerHTML +=buildCardItem(artical, index) ;
+    }
   });
-}
-
-function deleteArticle(articleNumber) {
-  items.splice(articleNumber, 1);
-
-  localStorage.setItem("list-items", JSON.stringify(items));
-
-  data = localStorage.getItem("list-items");
-  items = JSON.parse(data);
-
-  // location.reload();
-  renderArticales();
-}
-
-function edit(articleNumber) {
-  let url = `create-artical.html?articleNumber=${articleNumber}`;
-
-  window.location.href = url;
-}
+ });
