@@ -11,6 +11,9 @@
       rel="stylesheet"
     />
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       * {
         padding: 0;
         margin: 0;
@@ -67,7 +70,7 @@
       }
 
       .h-buttons:hover {
-        color: aqua;
+        color: #00000086;
         transition: color 0.3s ease;
       }
 
@@ -89,7 +92,7 @@
       }
 
       .h-login-bt:hover {
-        color: aqua;
+        color: #00000086;
       }
 
       .section-home {
@@ -158,22 +161,106 @@
           display: block;
         }
 
-        #drop-down-menu:hover #h-phone-links {
-          display: flex;
-          flex-direction: column;
-          position: absolute;
-          top: 40px;
-          right: 0;
-          background-color: white;
-          min-width: 150px;
-          border-radius: 8px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          padding: 10px;
-          gap: 15px;
-        }
-
         .phone-links {
           width: 100%;
+        }
+      }
+      #h-phone-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        background-color: white;
+        min-width: 150px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        gap: 15px;
+      }
+      /* إعدادات عامة للقسم */
+      .hero-section {
+        display: flex; /* لترتيب العناصر بجانب بعضها */
+        align-items: center; /* توسيط العناصر عمودياً */
+        justify-content: space-between; /* توزيع المساحة بين النص والصورة */
+        padding: 120px 8%; /* مسافات داخلية من الأعلى والجوانب */
+        background-color: #ffffff; /* لون الخلفية */
+      }
+
+      /* ------------------------- */
+      /* تنسيق الشق الأيمن (النصوص) */
+      /* ------------------------- */
+      .hero-content {
+        flex: 1; /* يأخذ نصف المساحة */
+        padding-left: 50px; /* مسافة لفصل النص عن الصورة في اليسار */
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+        color: #222;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+
+      /* ------------------------- */
+      /* تنسيق الشق الأيسر (الصورة) */
+      /* ------------------------- */
+      .hero-image {
+        flex: 1; /* يأخذ النصف الآخر من المساحة */
+        display: flex;
+        justify-content: center; /* توسيط الصورة في مساحتها */
+      }
+
+      .hero-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        /* تشغيل تأثير الحركة العائمة */
+        animation: floatImage 4s ease-in-out infinite;
+      }
+
+      /* ------------------------- */
+      /* تأثير الصورة العائمة (Animation) */
+      /* ------------------------- */
+      @keyframes floatImage {
+        0% {
+          transform: translateY(0px); /* البداية من الموضع الطبيعي */
+        }
+        50% {
+          transform: translateY(-20px); /* الارتفاع للأعلى قليلاً */
+        }
+        100% {
+          transform: translateY(0px); /* العودة للموضع الطبيعي */
+        }
+      }
+
+      /* ------------------------- */
+      /* التجاوب مع شاشات الهواتف (Responsive) */
+      /* ------------------------- */
+      @media (max-width: 768px) {
+        .hero-section {
+          flex-direction: column; /* تحويل العرض ليكون عمودياً بدلاً من أفقي */
+          text-align: center; /* توسيط النصوص */
+          padding: 40px 5%;
+        }
+        #earn-section {
+          flex-direction: column-reverse;
+        }
+
+        .hero-content {
+          padding-left: 0;
+          margin-bottom: 40px; /* مسافة بين النص والصورة التي ستصبح بالأسفل */
+        }
+
+        .hero-content h1 {
+          font-size: 2.2rem;
         }
       }
     </style>
@@ -184,40 +271,40 @@
         <a href="#" class="h-icon"></a>
         <div id="h-tp-right">
           <nav class="h-nav-links">
-            <a class="h-home-bt h-buttons" href="#">
+            <a class="h-home-bt h-buttons" href="#se-home">
               <img src="images/home.svg" alt="" width="16px" height="16px" />
               Home
             </a>
-            <a class="h-home-bt h-buttons" href="#">
+            <a class="h-home-bt h-buttons" href="#desing-section">
               <img src="images/home.svg" alt="" width="16px" height="16px" />
               About
             </a>
-            <a class="h-home-bt h-buttons" href="#">
+            <a class="h-home-bt h-buttons" href="#earn-section">
               <img src="images/home.svg" alt="" width="16px" height="16px" />
               Earn
             </a>
           </nav>
-          <a class="h-login-bt" href="#">Login</a>
-          <a class="h-signup-bt" href="#">SignUp</a>
+          <a class="h-login-bt" href="login.html">Login</a>
+          <a class="h-signup-bt" href="login.html">SignUp</a>
 
-          <!-- قائمة الجوال المنسدلة -->
           <div id="drop-down-menu">
             <img
               id="h-menu-burger"
+              onclick="onMenuClick()"
               src="/images/menu-burger.svg"
               alt="Menu"
               width="24px"
             />
             <div id="h-phone-links">
-              <a class="h-home-bt h-buttons phone-links" href="#">
+              <a class="h-home-bt h-buttons phone-links" href="#se-home">
                 <img src="images/home.svg" alt="" width="16px" height="16px" />
                 Home
               </a>
-              <a class="h-home-bt h-buttons phone-links" href="#">
+              <a class="h-home-bt h-buttons phone-links" href="#desing-section">
                 <img src="images/home.svg" alt="" width="16px" height="16px" />
                 About
               </a>
-              <a class="h-home-bt h-buttons phone-links" href="#">
+              <a class="h-home-bt h-buttons phone-links" href="#earn-section">
                 <img src="images/home.svg" alt="" width="16px" height="16px" />
                 Earn
               </a>
@@ -227,10 +314,38 @@
       </div>
     </header>
 
-    <section class="section-home">
+    <section id="se-home" class="section-home">
       <h2>Publish your passions, your way</h2>
       <p>Create a unique and beautiful blog easily.</p>
       <a href="login.html">Create Blog</a>
+    </section>
+    <section id="desing-section" class="hero-section">
+      <div class="hero-content">
+        <h1>Choose the perfect design</h1>
+        <p>
+          Create a beautiful blog that fits your style. Choose from a selection
+          of easy-to-use templates – all with flexible layouts and hundreds of
+          background images – or design something new.
+        </p>
+      </div>
+
+      <div class="hero-image">
+        <img src="images/section2.webp" alt="صورة توضيحية عائمة" />
+      </div>
+    </section>
+    <section id="earn-section" class="hero-section">
+      <div class="hero-image">
+        <img src="images/section3.webp" alt="صورة توضيحية عائمة" />
+      </div>
+      <div class="hero-content">
+        <h1>Earn money</h1>
+        <p>
+          Get paid for your hard work. Google AdSense can automatically display
+          relevant targeted ads on your blog so that you can earn income by
+          posting about your passion.
+        </p>
+      </div>
+      <script src="index.js"></script>
     </section>
   </body>
 </html>
