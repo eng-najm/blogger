@@ -179,21 +179,21 @@
         padding: 10px;
         gap: 15px;
       }
-      /* إعدادات عامة للقسم */
+      
       .hero-section {
-        display: flex; /* لترتيب العناصر بجانب بعضها */
-        align-items: center; /* توسيط العناصر عمودياً */
-        justify-content: space-between; /* توزيع المساحة بين النص والصورة */
-        padding: 120px 8%; /* مسافات داخلية من الأعلى والجوانب */
-        background-color: #ffffff; /* لون الخلفية */
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        padding: 120px 8%; 
+        background-color: #ffffff; 
       }
 
-      /* ------------------------- */
-      /* تنسيق الشق الأيمن (النصوص) */
-      /* ------------------------- */
+      
+      
+      
       .hero-content {
-        flex: 1; /* يأخذ نصف المساحة */
-        padding-left: 50px; /* مسافة لفصل النص عن الصورة في اليسار */
+        flex: 1; 
+        padding-left: 50px; 
       }
 
       .hero-content h1 {
@@ -210,45 +210,45 @@
         line-height: 1.6;
       }
 
-      /* ------------------------- */
-      /* تنسيق الشق الأيسر (الصورة) */
-      /* ------------------------- */
+      
+      
+      
       .hero-image {
-        flex: 1; /* يأخذ النصف الآخر من المساحة */
+        flex: 1; 
         display: flex;
-        justify-content: center; /* توسيط الصورة في مساحتها */
+        justify-content: center; 
       }
 
       .hero-image img {
         max-width: 100%;
         height: auto;
         border-radius: 15px;
-        /* تشغيل تأثير الحركة العائمة */
+        
         animation: floatImage 4s ease-in-out infinite;
       }
 
-      /* ------------------------- */
-      /* تأثير الصورة العائمة (Animation) */
-      /* ------------------------- */
+      
+      
+      
       @keyframes floatImage {
         0% {
-          transform: translateY(0px); /* البداية من الموضع الطبيعي */
+          transform: translateY(0px); 
         }
         50% {
-          transform: translateY(-20px); /* الارتفاع للأعلى قليلاً */
+          transform: translateY(-20px); 
         }
         100% {
-          transform: translateY(0px); /* العودة للموضع الطبيعي */
+          transform: translateY(0px); 
         }
       }
 
-      /* ------------------------- */
-      /* التجاوب مع شاشات الهواتف (Responsive) */
-      /* ------------------------- */
+      
+      
+      
       @media (max-width: 768px) {
         .hero-section {
-          flex-direction: column; /* تحويل العرض ليكون عمودياً بدلاً من أفقي */
-          text-align: center; /* توسيط النصوص */
+          flex-direction: column; 
+          text-align: center; 
           padding: 40px 5%;
         }
         #earn-section {
@@ -257,7 +257,7 @@
 
         .hero-content {
           padding-left: 0;
-          margin-bottom: 40px; /* مسافة بين النص والصورة التي ستصبح بالأسفل */
+          margin-bottom: 40px; 
         }
 
         .hero-content h1 {
@@ -598,21 +598,21 @@
         padding: 5px;
         flex-direction: column;
       }
-      /* تنسيق الأيقونة */
+      
       .empty-state .empty-icon {
         font-size: 60px;
         margin-bottom: 15px;
-        opacity: 0.5; /* جعل لون الأيقونة باهتاً قليلاً */
+        opacity: 0.5; 
       }
 
-      /* تنسيق العنوان */
+      
       .empty-state h3 {
         margin: 0 0 10px 0;
         color: #374151;
         font-size: 22px;
       }
 
-      /* تنسيق النص التوضيحي */
+      
       .empty-state p {
         margin: 0 0 25px 0;
         color: #6b7280;
