@@ -40,7 +40,7 @@ function renderArticales() {
               <span class="username">Nagm</span>
               <span class="articleBtns">
                   <img class="articleBtn" onclick="deleteArticle(${index})" src="images/trash-can.png" >
-                  <img class="articleBtn" src="images/edit.png">
+                  <img class="articleBtn" onclick="edit(${index})" src="images/edit.png">
               </span>
             </div>
 
@@ -109,4 +109,10 @@ function deleteArticle(articleNumber) {
 
   // location.reload();
   renderArticales();
+}
+
+function edit(articleNumber) {
+  let url = `create-artical.html?articleNumber=${articleNumber}`;
+
+  window.location.href = url;
 }
