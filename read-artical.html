@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show Artical</title>
+    <style>
+      :root {
+        --bg-site: #ffffff;
+        --text-main: #000000;
+        --text-muted: #666666;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-site);
+        margin: 0;
+        padding: 0;
+        color: var(--text-main);
+      }
+
+      .article-container {
+        max-width: 760px;
+        margin: 60px auto;
+        padding: 0 20px;
+      }
+
+      .article-header {
+        text-align: left;
+        margin-bottom: 40px;
+        border-bottom: 2px solid var(--text-main);
+        padding-bottom: 20px;
+      }
+
+      .article-title {
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin: 0 0 15px 0;
+        line-height: 1.2;
+      }
+
+      /* هنا سيتم عرض التاريخ ديناميكياً */
+      .article-meta {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .article-image {
+        width: 100%;
+        margin-bottom: 40px;
+      }
+
+      /* هنا ستعرض الصورة ديناميكياً بتأثير الأبيض والأسود */
+      .article-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 0px;
+      }
+
+      /* تنسيق حاوية المحتوى الديناميكي (HTML) */
+      .article-content {
+        font-size: 1.2rem;
+        line-height: 1.9;
+      }
+
+      /* تنسيقات تلقائية لأي عناصر HTML تأتي داخل المحتوى الديناميكي */
+      .article-content p {
+        margin-bottom: 25px;
+      }
+      .article-content h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-top: 45px;
+        border-left: 3px solid var(--text-main);
+        padding-left: 15px;
+      }
+      .article-content blockquote {
+        border-left: 4px solid var(--text-main);
+        margin: 40px 0;
+        padding: 15px 30px;
+        font-size: 1.4rem;
+        font-style: italic;
+      }
+      .article-content a {
+        color: var(--text-main);
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body class="read-body">
+    <main class="article-container">
+      <header class="article-header">
+        <h1 class="article-title" id="dynTitle">Loading...</h1>
+        <div class="article-meta">
+          <span id="dynDate"></span>
+        </div>
+      </header>
+
+      <div class="article-image">
+        <img id="dynImage" src="" alt="غلاف المقالة" />
+      </div>
+
+      <div class="article-content" id="dynContent"></div>
+    </main>
+    <script src="read-artical.js"></script>
+  </body>
+</html>
