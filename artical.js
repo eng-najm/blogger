@@ -1,27 +1,34 @@
 let items = [];
- const title = document.getElementById("title").value ;
- const content = document.getElementById("content").value ;
+ const title = document.getElementById("title") ;
+ const content = document.getElementById("content") ;
  const file = document.getElementById("image");
-let url ;
-window.onload= ()=>{
+ let url ;
+
+
+function load(){
     let data = localStorage.getItem("list-items");
      if (data){
-        items = JSON.parse(data) ;
+        items = JSON.parse(data);
      }
 }
 
-
 function addArtical (){
-
-
- console.log(url); 
+load();
  let artical = {
-    title: title ,
-    content:content,
-    file: url
+    title: title.value ,
+    content:content.value,
+    file: url,
+    date: new Date()
  } ;
 
- 
+ items.unshift(artical);
+
+ localStorage.setItem(
+   "list-items",
+   JSON.stringify(items)
+ );
+
+ console.log(artical);
 }
 
 file.addEventListener('change' , (e)=>{
