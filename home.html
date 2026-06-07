@@ -8,308 +8,11 @@
       rel="stylesheet"
     />
 
-    <style>
-      * {
-        box-sizing: border-box;
-        font-family: "Audiowide", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        padding: 0;
-        margin: 0;
-      }
-      header {
-        height: 56px;
-        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
-        display: flex;
-        justify-content: space-between;
-        gap: 15px;
-        padding: 8px;
-      }
-      #left-side {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #acount-logo {
-        height: 40px;
-        width: 40px;
-        display: inline-block;
-        background-image: url("images/account.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 100px;
-        border-top: 3px solid black;
-        border-left: 3px solid white;
-        border-bottom: 3px solid black;
-        border-right: 3px solid white;
-        box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
-      }
-      #apps {
-        height: 40px;
-        width: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 8px;
-      }
-      img {
-        width: 24px;
-        height: 24px;
-      }
-      #searchbar {
-        display: flex;
-        border-radius: 28px;
-        padding: 2px;
-        overflow: hidden;
-        background-color: rgb(236, 239, 241);
-        border-radius: 12px;
-        width: 100%;
-        max-width: 780px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      input {
-        display: block;
-        background-color: transparent;
-        border-radius: none;
-        border: none;
-        width: inherit;
-      }
-      input:focus {
-        background-color: none;
-        border-radius: none;
-        outline: none;
-      }
-      #right-side {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-      }
-      #right-side img {
-        size: 50px 50px;
-      }
-      main {
-        display: flex;
-      }
-      aside {
-        padding: 8px;
-        display: flex;
-        flex-direction: column;
-        width: 280px;
-        height: 100vh;
-        box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.1);
-      }
-      section {
-        width: calc(100vw - 280px);
-        padding: 20px 30px;
-      }
-      #aside-new-button {
-        margin-top: 15px;
-        margin-left: 5px;
-        color: #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        text-align: center;
-        max-width: 150px;
-        height: 40px;
-        padding: 0 15px;
-        background-color: white;
-        border: 2px solid black;
-        border-radius: 100px;
-        transition: all 0.3s ease;
-      }
-
-      #aside-new-button:hover {
-        background-color: #000;
-        color: #fff;
-        cursor: pointer;
-      }
-      summary {
-        display: flex;
-        justify-content: space-between;
-        padding: 15px;
-      }
-
-      .card-container {
-        background-color: white;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 16px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        width: 100%;
-
-        box-sizing: border-box;
-      }
-
-      .card-left {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .profile {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        overflow: hidden;
-        background-color: transparent;
-      }
-
-      .username {
-        font-weight: 500;
-        color: #333;
-      }
-
-      .stats {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-top: 8px;
-        color: #777;
-      }
-
-      .stat-item {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 14px;
-      }
-
-      .icon {
-        width: 18px;
-        height: 18px;
-      }
-
-      .card-right {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 0px 16px;
-        align-items: flex-start;
-      }
-
-      .post-info {
-        grid-column: 1;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 4px;
-      }
-
-      .letter-box {
-        grid-column: 2;
-        width: 50px;
-        height: 50px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: 16px;
-        align-self: flex-start;
-      }
-
-      .letter {
-        font-size: 24px;
-        font-weight: bold;
-        color: #333;
-      }
-
-      .post-title {
-        font-size: 16px;
-        margin: 0;
-        font-weight: 500;
-        color: #333;
-      }
-
-      .post-meta {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: #888;
-        font-size: 14px;
-      }
-
-      .status {
-        color: #fca130;
-      }
-
-      .separator {
-        margin: 0 4px;
-      }
-      #list-items {
-        display: flex;
-        gap: 20px;
-        padding: 5px;
-        flex-direction: column;
-      }
-      /* تنسيق الأيقونة */
-      .empty-state .empty-icon {
-        font-size: 60px;
-        margin-bottom: 15px;
-        opacity: 0.5; /* جعل لون الأيقونة باهتاً قليلاً */
-      }
-
-      /* تنسيق العنوان */
-      .empty-state h3 {
-        margin: 0 0 10px 0;
-        color: #374151;
-        font-size: 22px;
-      }
-
-      /* تنسيق النص التوضيحي */
-      .empty-state p {
-        margin: 0 0 25px 0;
-        color: #6b7280;
-        font-size: 15px;
-        line-height: 1.5;
-      }
-
-      .empty-state {
-        display: none;
-        text-align: center;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 50vh;
-      }
-
-      .articleBtns {
-        display: none;
-
-      }
-
-      .articleBtn {
-        border: none;
-      }
-
-      .articleBtn:hover {
-        background-color: rgba(89, 89, 89, 0.329);
-        border-radius: 5px;
-
-      }
-
-      .card-container:hover .articleBtns {
-        display: inline;
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
+    <link rel="stylesheet" href="css/style.css">
+  <body class="home-body">
+    <header class="home-header">
       <div id="right-side">
-        <div id="drawer-logo">
+        <div id="drawer-logo" onclick="onMenuClicked()">
           <img src="images/menu-burger.svg" width="40px" height="40px" alt="" />
         </div>
         <div id="app-logo">
@@ -317,21 +20,21 @@
         </div>
       </div>
       <div id="searchbar">
-        <a href="#" id="apps"> <img src="images/apps.svg" alt="" /> </a>
-        <input type="text" name="" id="" placeholder="shearch" />
+        <label for="search"
+          ><la href="#" id="apps"> <img src="images/search.png" alt="" /> </la
+        ></label>
+        <input type="text" name="search" id="search" placeholder="search" />
       </div>
       <div id="left-side">
-        <a href="#" id="apps"> <img src="images/apps.svg" alt="" /> </a>
-        <a href="#" id="apps"> <img src="images/info.svg" alt="" /> </a>
         <div id="acount-logo"></div>
       </div>
     </header>
-    <main>
-      <aside>
+    <main class="home-main">
+      <aside id="home-aside">
         <h3>Your Name</h3>
-        <a id="aside-new-button" href="">+ New Share </a>
+        <a href="create-artical.html">+ New Share </a>
       </aside>
-      <section>
+      <section class="content-section">
         <details>
           <summary>
             <div>Notifications</div>
@@ -343,10 +46,10 @@
         </details>
         <div id="emptyState" class="empty-state">
           <div class="empty-icon">📄</div>
-          <h3>لا توجد مقالات حالياً</h3>
+          <h3>No articles yet</h3>
           <p>
-            يبدو أنك لم تقم بإضافة أي مقالات بعد. ابدأ بكتابة مقالتك الأولى الآن
-            ليتم عرضها هنا!
+            It looks like you haven't added any articles yet. Start writing your
+            first article now to display it here!
           </p>
         </div>
         <div id="list-items"></div>
