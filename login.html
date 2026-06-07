@@ -4,130 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <title>Blogger</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        background-color: ghostwhite;
-      }
-      * {
-        box-sizing: border-box;
-        font-family: "Audiowide", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        padding: 0;
-        margin: 0;
-      }
-      main {
-        display: flex;
-        justify-self: center;
-        align-items: center;
-        width: 100vw;
-        height: 100vh;
-      }
-      @media (min-width: 1000px) {
-        .m-left-content {
-          background-image: url("images/image.png");
-          width: 50vw;
-          height: 100vh;
-          background-repeat: no-repeat;
-          background-size: cover;
-          animation: moveBackground 30s linear infinite alternate;
-        }
-      }
-
-      .m-right-content {
-        margin: auto;
-        width: 50vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      @keyframes moveBackground {
-        0% {
-          background-position: left center;
-        }
-        100% {
-          background-position: right center;
-        }
-      }
-      input {
-        display: block;
-        border-color: #cedced;
-        border-radius: 0.25rem;
-        height: auto;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        font-size: 1.25rem;
-        line-height: 1.5;
-        border: 1px solid #5c5c5c;
-        padding: 0.5rem;
-        width: 100%;
-        margin-bottom: 20px;
-        margin-top: 0.25rem;
-      }
-      input:focus {
-        outline: 2px solid black;
-      }
-      .bg {
-        padding-left: 4rem;
-        padding-right: 4rem;
-        padding-top: 3rem;
-        padding-bottom: 5rem;
-        background-color: white;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
-      label {
-        max-width: 30rem;
-        margin-top: 1.5rem;
-
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.4;
-        display: block;
-      }
-      nav {
-        display: flex;
-        border: 2px solid black;
-        border-radius: 100px;
-        padding: 5px;
-        justify-content: space-around;
-      }
-
-      .active-nav {
-        color: white;
-        text-decoration: none;
-        padding: 10px 0px;
-        width: 150px;
-        text-align: center;
-        background-color: black;
-        border-radius: 50px;
-      }
-      .inactive-nav {
-        color: black;
-        text-decoration: none;
-        padding: 10px 0px;
-        width: 150px;
-        text-align: center;
-      }
-      #login-form {
-        display: none;
-      }
-    </style>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <main>
+    <main class="login-main">
       <section class="m-left-content"></section>
 
       <div class="m-right-content">
         <div class="bg">
-          <nav>
+          <nav class="login-nav">
             <a class="singup active-nav" href="#">SingUp</a>
             <a class="login inactive-nav" href="#">Login</a>
           </nav>
