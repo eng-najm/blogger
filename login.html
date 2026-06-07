@@ -158,29 +158,38 @@
             <input type="email" name="email" id="email" required />
             <label for="password">User Password</label>
             <input type="password" name="password" id="password" required />
-            <input type="submit" name="submit" id="submit" />
+            <input
+              type="submit"
+              onclick="goToHome()"
+              name="submit"
+              id="submit"
+            />
           </form>
         </div>
       </div>
     </main>
-  </body>
-  <script>
-    let singupNav = document.querySelector(".singup");
-    let loginNav = document.querySelector(".login");
-    let singup = document.querySelector("#singup-form");
-    let login = document.querySelector("#login-form");
+    <script>
+      let singupNav = document.querySelector(".singup");
+      let loginNav = document.querySelector(".login");
+      let singup = document.querySelector("#singup-form");
+      let login = document.querySelector("#login-form");
 
-    singupNav.addEventListener("click", function (e) {
-      singupNav.className = "active-nav";
-      loginNav.className = "inactive-nav";
-      login.style.display = "none";
-      singup.style.display = "block";
-    });
-    loginNav.addEventListener("click", function (e) {
-      singupNav.className = "inactive-nav";
-      loginNav.className = "active-nav";
-      login.style.display = "block";
-      singup.style.display = "none";
-    });
-  </script>
+      singupNav.addEventListener("click", function (e) {
+        singupNav.className = "active-nav";
+        loginNav.className = "inactive-nav";
+        login.style.display = "none";
+        singup.style.display = "block";
+      });
+      loginNav.addEventListener("click", function (e) {
+        singupNav.className = "inactive-nav";
+        loginNav.className = "active-nav";
+        login.style.display = "block";
+        singup.style.display = "none";
+      });
+      function goToHome() {
+        window.location.href = "home.html";
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>
