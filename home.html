@@ -1,6 +1,9 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogger Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -9,7 +12,7 @@
     />
 
     <link rel="stylesheet" href="css/style.css">
-    </head>
+  </head>
   <body class="home-body">
     <header class="home-header">
       <div id="right-side">
@@ -17,7 +20,7 @@
           <img src="images/menu-burger.svg" width="40px" height="40px" alt="" />
         </div>
         <div id="app-logo">
-          <img src="images/icon.png" width="40px" height="40px" alt="" />
+          <img src="images/icon.png" width="40" height="40" alt="Blogger logo" />
         </div>
       </div>
       <div id="searchbar">
@@ -29,6 +32,7 @@
         <div id="acount-logo"></div>
       </div>
     </header>
+
     <main class="home-main">
       <aside id="home-aside">
         <h3>Your Name</h3>
@@ -51,8 +55,9 @@
             It looks like you haven't added any articles yet. Start writing your
             first article now to display it here!
           </p>
-        </div>
-        <div id="list-items"></div>
+        </article>
+
+        <section id="list-items" aria-label="Your articles"></section>
       </section>
     </main>
 
