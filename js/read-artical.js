@@ -5,7 +5,7 @@ const content = data[articalNumber].content ;
 const date = data[articalNumber].date ;
 const image = data[articalNumber].file ;
 
- function renderArticle(data) {
+ function renderArticle() {
         document.getElementById("dynTitle").textContent = title;
         document.getElementById("dynDate").textContent =
           `Published: ${new Date(date).toLocaleDateString("en-US",{day:"numeric" , month:"long"})}`;
@@ -20,6 +20,6 @@ const image = data[articalNumber].file ;
 
 document.addEventListener(
    "DOMContentLoaded", () => {
-  renderArticle(data);
+  renderArticle();
    }
 );

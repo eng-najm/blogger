@@ -36,8 +36,6 @@ function deleteArticle(articleNumber) {
   localStorage.setItem("list-items", JSON.stringify(items));
 
   load()
-
-  // location.reload();
   renderArticales();
 }
 
