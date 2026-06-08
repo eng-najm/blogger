@@ -46,7 +46,7 @@ function edit(articleNumber) {
 }
 
 function onMenuClicked(){
- aside.style.display = aside.style.display == "flex"?"none": "flex"  ;
+ aside.style.display = (aside.style.display == "flex")?"none": "flex"  ;
 }
 
 function openReadPage(index){
