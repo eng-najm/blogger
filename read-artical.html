@@ -6,20 +6,23 @@
     <title>Show Artical</title>
     <link rel="stylesheet" href="css/read-artical.css" />
   </head>
+
   <body class="read-body">
-    <main class="article-container">
-      <header class="article-header">
-        <h1 class="article-title" id="dynTitle">Loading...</h1>
-        <div class="article-meta">
-          <span id="dynDate"></span>
-        </div>
-      </header>
+    <main>
+      <article class="article-container">
+        <header class="article-header">
+          <h1 class="article-title" id="dynTitle">Loading...</h1>
+          <div class="article-meta">
+            <time id="dynDate"></time>
+          </div>
+        </header>
 
-      <div class="article-image">
-        <img id="dynImage" src="" alt="غلاف المقالة" />
-      </div>
+        <figure class="article-image">
+          <img id="dynImage" src="" alt="غلاف المقالة" />
+        </figure>
 
-      <div class="article-content" id="dynContent"></div>
+        <section class="article-content" id="dynContent"></section>
+      </article>
     </main>
     <script src="js/read-artical.js"></script>
   </body>
