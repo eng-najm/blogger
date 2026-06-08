@@ -29,14 +29,19 @@
               id="singup-password"
               required
             />
-            <label for="singup-password">Repate Password</label>
+            <label for="singup-re-password">Repate Password</label>
             <input
               type="password"
               name="password"
-              id="singup-password"
+              id="singup-re-password"
               required
             />
-            <input type="submit" name="submit" id="singup-submit" />
+            <input
+              type="submit"
+              name="submit"
+              id="singup-submit"
+              onclick="goToHome(false)"
+            />
           </form>
           <form id="login-form" action="home.html" method="post">
             <label for="email">User Email</label>
@@ -45,7 +50,7 @@
             <input type="password" name="password" id="password" required />
             <input
               type="submit"
-              onclick="goToHome()"
+              onclick="goToHome(true)"
               name="submit"
               id="submit"
             />
@@ -58,22 +63,83 @@
       let loginNav = document.querySelector(".login");
       let singup = document.querySelector("#singup-form");
       let login = document.querySelector("#login-form");
-
+      singup.addEventListener("submit", (e) => {
+        e.preventDefault();
+      });
       singupNav.addEventListener("click", function (e) {
         singupNav.className = "active-nav";
         loginNav.className = "inactive-nav";
         login.style.display = "none";
         singup.style.display = "block";
       });
-      
+
       loginNav.addEventListener("click", function (e) {
         singupNav.className = "inactive-nav";
         loginNav.className = "active-nav";
         login.style.display = "block";
         singup.style.display = "none";
       });
-      function goToHome() {
-        window.location.href = "home.html";
+      
+      function goToHome(isLogin) {
+        if (isLogin) {
+          if (validateLogin()) {
+            window.location.href = "home.html";
+          }
+        } else {
+          if (validateSignup()) {
+            window.location.href = "home.html";
+          }
+        }
+      }
+      function validateSignup() {
+        let username = document.getElementById("singup-name").value;
+        let email = document.getElementById("singup-email").value;
+        let password = document.getElementById("singup-password").value;
+        let rePassword = document.getElementById("singup-re-password").value;
+
+        if (username === "") {
+          alert("Enter username");
+          return false;
+        }
+
+        if (email === "") {
+          alert("Enter email");
+          return false;
+        }
+
+        if (password === "") {
+          alert("Enter password");
+          return false;
+        }
+
+        if (rePassword === "") {
+          alert("Repeat password");
+          return false;
+        }
+
+        if (password !== rePassword) {
+          alert("Passwords not equal");
+          return false;
+        }
+
+        return true;
+      }
+
+      function validateLogin() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        if (email === "") {
+          alert("Enter email");
+          return false;
+        }
+
+        if (password === "") {
+          alert("Enter password");
+          return false;
+        }
+
+        return true;
       }
     </script>
     <script src="js/script.js"></script>
